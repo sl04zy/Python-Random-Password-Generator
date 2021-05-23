@@ -15,6 +15,8 @@ try:
 {Fore.MAGENTA}{Style.BRIGHT}|  _  |  _  |   __|   __| | | |     | __  |    \       {Fore.RED}|   __|   __|   | |   __| __  |  _  |_   _|     | __  |
 {Fore.MAGENTA}{Style.BRIGHT}|   __|     |__   |__   | | | |  |  |    -|  |  |      {Fore.RED}|  |  |   __| | | |   __|    -|     | | | |  |  |    -|
 {Fore.WHITE}|__|  |__|__|_____|_____|_____|_____|__|__|____/       |_____|_____|_|___|_____|__|__|__|__| |_| |_____|__|__|
+
+{Fore.BLUE}Coded By sl04zy on GitHub. Program under MIT License.
     """)
 
     sleep(1)
