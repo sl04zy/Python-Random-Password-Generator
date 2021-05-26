@@ -3,7 +3,8 @@ try:
     from time import sleep
     import colorama
     from colorama import Fore, Back, Style
-    colorama.init(autoreset=False)
+    from colorama import init
+    init(autoreset=False)
 
     uppercase_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     lowercase_letters = uppercase_letters.lower()
@@ -16,12 +17,13 @@ try:
 {Fore.MAGENTA}{Style.BRIGHT}|   __|     |__   |__   | | | |  |  |    -|  |  |      {Fore.RED}|  |  |   __| | | |   __|    -|     | | | |  |  |    -|
 {Fore.WHITE}|__|  |__|__|_____|_____|_____|_____|__|__|____/       |_____|_____|_|___|_____|__|__|__|__| |_| |_____|__|__|
 
-{Fore.BLUE}Coded By sl04zy on GitHub. Program under MIT License.
+{Fore.BLUE}Coded By sl04zy on GitHub. Program under MIT License.{Fore.RESET}
     """)
 
     sleep(1)
-    default = str(input(f"\n{Fore.YELLOW}Do you want to use the default protocol? {Fore.WHITE}(y/n){Fore.RESET} "))
-
+    print(f"{Fore.YELLOW}Do you want to use the default generation?{Fore.RESET}")
+    print(f"{Fore.YELLOW}The default generation uses: {Fore.RED}Uppercase letters{Fore.YELLOW}, {Fore.RED}Lowercase letters {Fore.YELLOW}&{Fore.RED} Numbers{Fore.YELLOW}.{Fore.RESET}")
+    default = str(input(f"Insert input (y/n): "))
 
     if default == "y":
         upper, lower, digits, syms = True, True, True, False
@@ -34,27 +36,34 @@ try:
             all += numbers
         if syms: 
             all += symbols
-        lenght = int(input(f"\n{Fore.YELLOW}How many characters do you want the password to be? {Fore.WHITE}(Insert a number. {Fore.GREEN}Recommended: 16{Fore.WHITE}){Fore.RESET} "))
+        print(f"\n{Fore.YELLOW}How many characters do you want the password to be?{Fore.RESET}")
+        lenght = int(input("Insert a number (Recommended 16, Max 62): "))
         amount = 20
-        print(f"\n{Fore.GREEN}Here there are some fresh passwords. This are unique passwords. \n{Fore.GREEN}They are pretty safe and can be used to avoid begin pwned.{Fore.RESET}\n\n")
+        print(f"\n{Fore.GREEN}Here there are some fresh passwords. This are unique passwords. \nThey are pretty safe and can be used to avoid begin pwned.{Fore.RESET}\n\n")
         sleep(1)
         for x in range(amount):
             password = "".join(random.sample(all, lenght))
             print(password)
             sleep(0.1)
-        i = input(f"\n{Fore.RED}Once you have copied this passwords press ENTER to exit the program.{Fore.RESET}")
+        print("")
+        print(f"\n{Fore.RED}Once you have copied this passwords press ENTER to exit the program.{Fore.RESET}")
+        i = input("Press ENTER to continue.....")
         exit()
 
 
     else:
         print("")
-        upper = str(input(f"{Fore.YELLOW}Do you want to use uppercase letters? {Fore.WHITE}(y/n) "))
+        print(f"{Fore.YELLOW}Do you want to use uppercase letters?{Fore.RESET}")
+        upper = str(input(f"Insert input (y/n): "))
         print("")
-        lower = str(input(f"{Fore.YELLOW}Do you want to use lowercase letters? {Fore.WHITE}(y/n) "))
+        print(f"{Fore.YELLOW}Do you want to use lowercase letters?{Fore.RESET}")
+        lower = str(input(f"Insert input (y/n): "))
         print("")
-        digits = str(input(f"{Fore.YELLOW}Do you want to use numbers? {Fore.WHITE}(y/n) "))
+        print(f"{Fore.YELLOW}Do you want to use numbers?{Fore.RESET}")
+        digits = str(input(f"Insert input (y/n): "))
         print("")
-        syms = str(input(f"{Fore.YELLOW}Do you want to use symbols {Fore.GREEN}(e.g: @, #){Fore.YELLOW}? {Fore.WHITE}(y/n) "))
+        print(f"{Fore.YELLOW}Do you want to use symbols (e.g: @, #)?{Fore.RESET}")
+        syms = str(input(f"Insert input (y/n): "))
         print("")
         print("")
         all = ""
@@ -66,7 +75,8 @@ try:
             all += numbers
         if syms == "y":
             all += symbols
-        lenght = int(input(f"\n{Fore.YELLOW}How many characters do you want the password to be? {Fore.WHITE}(Insert a number. {Fore.GREEN}Recommended: 16{Fore.WHITE}){Fore.RESET} "))
+        print(f"\n{Fore.YELLOW}How many characters do you want the password to be?{Fore.RESET}")
+        lenght = int(input("Insert a number (Recommended 16, Max 62): "))
         amount = 20
         print(f"\n{Fore.GREEN}Here there are some fresh passwords. This are unique passwords. \n{Fore.GREEN}They are pretty safe and can be used to avoid begin pwned.{Fore.RESET}\n\n")
         sleep(1)
@@ -75,7 +85,16 @@ try:
             print(password)
             sleep(0.1)
         print("")
-        i = input(f"\n{Fore.RED}Once you have copied this passwords press ENTER to exit the program.{Fore.RESET}")
+        print(f"\n{Fore.RED}Once you have copied this passwords press ENTER to exit the program.{Fore.RESET}")
+        i = input("Press ENTER to continue.....")
+        exit()
+
+
+
+except KeyboardInterrupt:
+    exit()
+
+
 
 except ModuleNotFoundError:
     print("""
@@ -99,3 +118,13 @@ the packages that he needed to work proprely.""")
         thrd.start()
         thrd.join()
         exit()
+
+
+
+except ValueError:
+    print(f"\n\n{Fore.RED}Error:{Fore.GREEN} an error occurred during the process!{Fore.RESET}")
+    print(f"{Fore.YELLOW}Please follow carefully the instructions before submitting any inputs.{Fore.RESET}")
+    print(f"{Fore.RED}Closing the program, please wait....{Fore.RESET}")
+    sleep(5)
+    exit()
+
